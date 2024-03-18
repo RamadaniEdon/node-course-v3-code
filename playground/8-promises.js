@@ -1,7 +1,8 @@
 const add = (a, b) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve(a + b)
+            // resolve(a + b)
+            reject("Error")
         }, 2000)
     })
 }
@@ -18,10 +19,11 @@ const add = (a, b) => {
 //     console.log(e)
 // })
 
-add(1, 1).then((sum) => {
+const me = add(1, 1).then((sum) => {
     console.log(sum)
-    return add(sum, 4)
-}).then((sum2) => {
+    return add(sum, 4);
+});
+me.then((sum2) => {
     console.log(sum2)
 }).catch((e) => {
     console.log(e)
